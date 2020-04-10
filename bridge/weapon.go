@@ -1,7 +1,7 @@
 package bridge
 
 type Weapon interface {
-	Wield() string
+	Wield()
 	Swing()
 	Unwield()
 }
