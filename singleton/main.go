@@ -6,38 +6,44 @@ import (
 	"time"
 )
 
-//Hello class
-type Hello struct{}
-
-func (h *Hello) String() string {
-	return "Hello"
-}
-
-var instance *Hello
+var instance *TokyoTower
 var once sync.Once
 
+type TokyoTower struct {
+	color string
+}
+
+func (h *TokyoTower) String() string {
+	return "Tokyo tower " + h.color
+}
+
 //GetInstance returns singleton instance
-func GetInstance() *Hello {
+func GetInstance(color string) *TokyoTower {
 	once.Do(func() {
 		fmt.Println("new instance")
-		time.Sleep(1 * time.Second) //delay 1sec
-		instance = &Hello{}
+		time.Sleep(1 * time.Second)
+		instance = &TokyoTower{
+			color: color,
+		}
 	})
 	return instance
 }
 
 func main() {
 	ch := make(chan interface{})
-	go run(ch, "Alice")
-	go run(ch, "Bob")
-	go run(ch, "Chris")
+	go run(ch, "Red")
+	go run(ch, "Blue")
+	go run(ch, "Green")
 	<-ch
 	<-ch
 	<-ch
+
+	tower := GetInstance("Yellow")
+	fmt.Println(tower)
 }
 
-func run(ch chan<- interface{}, person string) {
-	hello := GetInstance()
-	ch <- hello //blocking
-	fmt.Println(hello, person)
+func run(ch chan<- interface{}, color string) {
+	tower := GetInstance(color)
+	fmt.Println(tower)
+	ch <- tower //blocking
 }
