@@ -15,7 +15,7 @@ func (m *ManufacturingDirector) Construct() ElectronicProduct {
 	return m.builder.GetGadget()
 }
 
-func (m *ManufacturingDirector) PrintProduct()  {
+func (m *ManufacturingDirector) PrintProduct() {
 	gadget := m.builder.GetGadget()
 	fmt.Printf("Structure: %s \n", gadget.Structure)
 	fmt.Printf("Monitor: %d \n", gadget.Monitor)

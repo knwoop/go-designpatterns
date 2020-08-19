@@ -16,18 +16,21 @@ type King interface {
 // Elven
 type ElfArmy struct {
 }
+
 func (e *ElfArmy) getDescription() string {
 	return "This is the Elven Army!"
 }
 
 type ElfCastle struct {
 }
+
 func (e *ElfCastle) getDescription() string {
 	return "This is the Elven Castle!"
 }
 
 type ElfKing struct {
 }
+
 func (e *ElfKing) getDescription() string {
 	return "This is the Eleven King!"
 }
@@ -35,18 +38,21 @@ func (e *ElfKing) getDescription() string {
 // Orc
 type OrcArmy struct {
 }
+
 func (e *OrcArmy) getDescription() string {
 	return "This is the Orc Army!"
 }
 
 type OrcCastle struct {
 }
+
 func (e *OrcCastle) getDescription() string {
 	return "This is the Orc Castle!"
 }
 
 type OrcKing struct {
 }
+
 func (e *OrcKing) getDescription() string {
 	return "This is the Orc King!"
 }
@@ -54,8 +60,8 @@ func (e *OrcKing) getDescription() string {
 // Kingdom
 type KingdomFactory interface {
 	createCastle() Castle
-	createKing()   King
-	createArmy()   Army
+	createKing() King
+	createArmy() Army
 }
 
 type elfKingdomFactory struct {
@@ -65,15 +71,15 @@ func NewElfKingdomFactory() KingdomFactory {
 	return &elfKingdomFactory{}
 }
 
-func(e *elfKingdomFactory) createCastle() Castle {
+func (e *elfKingdomFactory) createCastle() Castle {
 	return &ElfCastle{}
 }
 
-func(e *elfKingdomFactory) createKing() King {
+func (e *elfKingdomFactory) createKing() King {
 	return &ElfKing{}
 }
 
-func(e *elfKingdomFactory) createArmy() Army {
+func (e *elfKingdomFactory) createArmy() Army {
 	return &ElfArmy{}
 }
 
@@ -85,14 +91,14 @@ func NewOrcKingdomFactory() KingdomFactory {
 	return &orcKingdomFactory{}
 }
 
-func(e *orcKingdomFactory) createCastle() Castle {
+func (e *orcKingdomFactory) createCastle() Castle {
 	return &OrcCastle{}
 }
 
-func(e *orcKingdomFactory) createKing() King {
+func (e *orcKingdomFactory) createKing() King {
 	return &OrcKing{}
 }
 
-func(e *orcKingdomFactory) createArmy() Army {
+func (e *orcKingdomFactory) createArmy() Army {
 	return &OrcArmy{}
 }

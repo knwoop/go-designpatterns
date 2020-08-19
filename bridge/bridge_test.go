@@ -1,8 +1,9 @@
 package bridge_test
 
 import (
-	"github.com/knwoop/go-designpatterns/bridge"
 	"testing"
+
+	"github.com/knwoop/go-designpatterns/bridge"
 )
 
 func TestBridge(t *testing.T) {

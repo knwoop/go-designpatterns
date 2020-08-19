@@ -6,9 +6,9 @@ import (
 
 func TestAbstractFactory(t *testing.T) {
 	elfKingdam := NewElfKingdomFactory()
-	elfCastle  := elfKingdam.createCastle()
-	elfKing    := elfKingdam.createKing()
-	elfArmy    := elfKingdam.createArmy()
+	elfCastle := elfKingdam.createCastle()
+	elfKing := elfKingdam.createKing()
+	elfArmy := elfKingdam.createArmy()
 
 	elfCastleExpect := "This is the Elven Castle!"
 	if elfCastle.getDescription() != elfCastleExpect {
@@ -26,9 +26,9 @@ func TestAbstractFactory(t *testing.T) {
 	}
 
 	orkKingdam := NewOrcKingdomFactory()
-	orkCastle  := orkKingdam.createCastle()
-	orkKing    := orkKingdam.createKing()
-	orkArmy    := orkKingdam.createArmy()
+	orkCastle := orkKingdam.createCastle()
+	orkKing := orkKingdam.createKing()
+	orkArmy := orkKingdam.createArmy()
 	orkCastleExpect := "This is the Orc Castle!"
 	if orkCastle.getDescription() != orkCastleExpect {
 		t.Errorf("Expect output to %s, but %s\n", orkCastleExpect, orkCastle.getDescription())

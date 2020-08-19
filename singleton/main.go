@@ -34,6 +34,7 @@ func main() {
 	go run(ch, "Red")
 	go run(ch, "Blue")
 	go run(ch, "Green")
+
 	<-ch
 	<-ch
 	<-ch
